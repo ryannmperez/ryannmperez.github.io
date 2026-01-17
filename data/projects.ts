@@ -22,7 +22,7 @@ export const projects: Project[] = [
     title: 'AggBERT: Amyloid Prediction',
     description:
       'A deep learning framework for predicting amyloid-forming hexapeptides using semi-supervised ProtBERT models. Trained on WALTZ-DB dataset with predictions across a 64M peptide manifold. A useful tool for biologic design.',
-    image: '/projects/amyloid-prediction.gif',
+    image: '/projects/amyloid-prediction.mp4',
     githubUrl: 'https://github.com/ryannmperez/AmyloidPrediction',
     tags: ['Transformers', 'UMAP', 'Semi-Supervised Learning', 'Autoencoders', 'Embeddings', 'Exploratory Data Analysis', 'Class Imbalance'],
   },
