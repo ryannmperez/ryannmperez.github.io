@@ -18,6 +18,28 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Ryann Perez | Computational Biochemist",
   description: "Computational biochemist specializing in machine learning, protein science, and generative AI. Building impactful AI systems at the intersection of deep learning and biology.",
+  openGraph: {
+    title: "Ryann Perez | Computational Biochemist",
+    description: "Machine learning, protein science, and generative AI at the intersection of deep learning and biology.",
+    url: "https://ryannmperez.github.io",
+    siteName: "Ryann Perez",
+    images: [
+      {
+        url: "/og-image.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Ryann Perez - Computational Biochemist",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ryann Perez | Computational Biochemist",
+    description: "Machine learning, protein science, and generative AI at the intersection of deep learning and biology.",
+    images: ["/og-image.jpeg"],
+  },
 };
 
 export default function RootLayout({
