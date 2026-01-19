@@ -22,11 +22,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ryann Perez | Computational Biochemist",
     description: "Machine learning, protein science, and generative AI at the intersection of deep learning and biology.",
-    url: "https://ryannmperez.github.io",
+    url: "https://ryannmperez-projects.vercel.app",
     siteName: "Ryann Perez",
     images: [
       {
-        url: "/og-image.jpeg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Ryann Perez - Computational Biochemist",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ryann Perez | Computational Biochemist",
     description: "Machine learning, protein science, and generative AI at the intersection of deep learning and biology.",
-    images: ["/og-image.jpeg"],
+    images: ["/og-image.png"],
   },
 };
 
