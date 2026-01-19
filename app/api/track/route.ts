@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     const country = request.headers.get('x-vercel-ip-country') || undefined;
     const city = request.headers.get('x-vercel-ip-city') || undefined;
 
-    logVisit({
+    await logVisit({
       ip,
       page: page || '/',
       user_agent: userAgent,
@@ -53,7 +53,7 @@ export async function GET(request: NextRequest) {
     const country = request.headers.get('x-vercel-ip-country') || undefined;
     const city = request.headers.get('x-vercel-ip-city') || undefined;
 
-    logVisit({
+    await logVisit({
       ip,
       page,
       user_agent: userAgent,

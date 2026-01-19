@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const summary = getAnalyticsSummary();
+    const summary = await getAnalyticsSummary();
     return NextResponse.json(summary);
   } catch (error) {
     console.error('Error fetching analytics:', error);
