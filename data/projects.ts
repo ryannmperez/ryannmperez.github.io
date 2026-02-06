@@ -49,7 +49,7 @@ export const projects: Project[] = [
     title: 'HintToken Learning',
     description:
       'Novel approach to data augmentation for protein language models using hint tokens for improved model training and inference.',
-    image: '/projects/hinttoken.jpeg',
+    image: '/projects/hinttoken.gif',
     githubUrl: 'https://github.com/ryannmperez/HintTokenLearning',
     tags: ['Machine Learning', 'NLP', 'Deep Learning', 'PyTorch', 'Data Augmentation'],
   },
