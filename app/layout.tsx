@@ -17,10 +17,10 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Ryann Perez | Computational Biochemist",
-  description: "Computational biochemist specializing in machine learning, protein science, and generative AI. Building impactful AI systems at the intersection of deep learning and biology.",
+  title: "Ryann Perez | Computational Biologist",
+  description: "Computational biologist specializing in machine learning, protein science, and generative AI. Building impactful AI systems at the intersection of deep learning and biology.",
   openGraph: {
-    title: "Ryann Perez | Computational Biochemist",
+    title: "Ryann Perez | Computational Biologist",
     description: "Machine learning, protein science, and generative AI at the intersection of deep learning and biology.",
     url: "https://ryannmperez-projects.vercel.app",
     siteName: "Ryann Perez",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Ryann Perez - Computational Biochemist",
+        alt: "Ryann Perez - Computational Biologist",
       },
     ],
     locale: "en_US",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ryann Perez | Computational Biochemist",
+    title: "Ryann Perez | Computational Biologist",
     description: "Machine learning, protein science, and generative AI at the intersection of deep learning and biology.",
     images: ["/og-image.png"],
   },

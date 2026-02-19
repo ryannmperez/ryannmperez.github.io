@@ -4,6 +4,7 @@ export interface Project {
   description: string;
   image: string;
   githubUrl: string;
+  paperUrl?: string;
   tags: string[];
 }
 
@@ -15,6 +16,7 @@ export const projects: Project[] = [
       'A RAG-based research assistant that helps reason through advanced concepts by searching through class documents and references, then generating informed responses with source citations. The capabilities and educational benefits of this system were studied in a real biological chemistry classroom.',
     image: '/projects/task.mp4',
     githubUrl: 'https://github.com/ryannmperez/TAsk',
+    paperUrl: 'https://www.sciencedirect.com/science/article/pii/S2666920X2600007X',
     tags: ['RAG', 'LLM', 'Google Cloud', 'Python', 'Education Technology', 'Biochemistry', 'Open Source', 'Generative AI'],
   },
   {
@@ -24,6 +26,7 @@ export const projects: Project[] = [
       'A deep learning framework for predicting amyloid-forming hexapeptides using semi-supervised ProtBERT models. Trained on WALTZ-DB dataset with predictions across a 64M peptide manifold. A useful tool for biologic design.',
     image: '/projects/amyloid-prediction.mp4',
     githubUrl: 'https://github.com/ryannmperez/AmyloidPrediction',
+    paperUrl: 'https://doi.org/10.1021/acs.jcim.3c00817',
     tags: ['Transformers', 'UMAP', 'Semi-Supervised Learning', 'Autoencoders', 'Embeddings', 'Exploratory Data Analysis', 'Class Imbalance'],
   },
   {
@@ -42,6 +45,7 @@ export const projects: Project[] = [
       'A machine learning framework to predict new high-affinity ligands that bind to α-synuclein fibrils, a key pathological feature of Parkinson\'s disease and related synucleinopathies. Trained on fewer than 300 experimentally measured binding affinities, the model identified five new sub-10 nM binders from a 140 million-compound virtual library.',
     image: '/projects/alpha-synuclein.gif',
     githubUrl: 'https://github.com/ryannmperez/alpha-SynucleinBinder',
+    paperUrl: 'https://doi.org/10.1039/D5CC06228D',
     tags: ['Virtual Screening', 'Drug Discovery', 'Cheminformatics', 'Machine Learning', 'Parkinson\'s Disease'],
   },
   {
@@ -51,6 +55,7 @@ export const projects: Project[] = [
       'Novel approach to data augmentation for protein language models using hint tokens for improved model training and inference.',
     image: '/projects/hinttoken.gif',
     githubUrl: 'https://github.com/ryannmperez/HintTokenLearning',
+    paperUrl: 'https://academic.oup.com/nargab/article/7/3/lqaf128/8266003',
     tags: ['Machine Learning', 'Protein Language Models', 'Deep Learning', 'PyTorch', 'Domain Adaptation'],
   },
   {
@@ -60,6 +65,7 @@ export const projects: Project[] = [
       'Large language models for predicting protein stability changes upon mutation. Useful for protein engineering and understanding disease-causing variants.',
     image: '/projects/protein-stability.png',
     githubUrl: 'https://github.com/ryannmperez/ProteinStability',
+    paperUrl: 'https://doi.org/10.3390/ijms26157125',
     tags: ['Protein Engineering', 'Machine Learning', 'Bioinformatics'],
   },
 ];

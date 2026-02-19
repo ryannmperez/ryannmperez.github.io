@@ -19,6 +19,9 @@ export default function Header() {
             <Link href="/" className="text-dark-muted hover:text-dark-accent transition-colors">
               Computational Projects
             </Link>
+            <Link href="/biochemistry" className="text-dark-muted hover:text-dark-accent transition-colors">
+              Biochemistry
+            </Link>
             <Link href="/resume" className="text-dark-muted hover:text-dark-accent transition-colors">
               Resume
             </Link>
@@ -58,6 +61,13 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Computational Projects
+              </Link>
+              <Link
+                href="/biochemistry"
+                className="text-dark-muted hover:text-dark-accent transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Biochemistry
               </Link>
               <Link
                 href="/resume"

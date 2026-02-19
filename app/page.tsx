@@ -26,7 +26,7 @@ export default function Home() {
 
             {/* Tagline */}
             <p className="text-lg md:text-2xl lg:text-3xl text-purple-200/80 font-light max-w-4xl mx-auto mb-8 md:mb-12">
-              Computational Biochemist
+              Computational Biologist
             </p>
 
             {/* Description */}
