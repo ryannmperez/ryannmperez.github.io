@@ -12,6 +12,18 @@ export interface BiochemProject {
 
 export const biochemProjects: BiochemProject[] = [
   {
+    id: 'proteolytic-amyloid-assay',
+    title: 'Proteolytic Amyloid Digestion Assay for Fibril Polymorphisms',
+    description:
+      'Developed a novel proteolytic digestion assay with mass spectrometry readout for rapidly distinguishing different \u03b1-synuclein fibril polymorphisms. This technique enables faster and more reproducible characterization of disease-relevant fibril structures, improving the diagnosis of Parkinsonian diseases.',
+    image: '/projects/biochem/proteolytic-assay.png',
+    paperUrl: '',
+    tags: ['Mass Spectrometry', 'Fibril Polymorphism', 'Proteolysis', '\u03b1-Synuclein', 'Biochemical Assay'],
+    journal: '',
+    year: '',
+    status: 'In Preparation',
+  },
+  {
     id: 'msa-selective-binding',
     title: 'Selective Radioligand Binding to \u03b1-Synuclein in MSA Tissue',
     description:
@@ -100,17 +112,5 @@ export const biochemProjects: BiochemProject[] = [
     tags: ['Post-Translational Modifications', 'Protein Aggregation', "Parkinson's Disease", 'Fibril Formation'],
     journal: 'J. Mol. Biol.',
     year: '2022',
-  },
-  {
-    id: 'proteolytic-amyloid-assay',
-    title: 'Proteolytic Amyloid Digestion Assay for Fibril Polymorphisms',
-    description:
-      'Developed a novel proteolytic digestion assay with mass spectrometry readout for rapidly distinguishing different \u03b1-synuclein fibril polymorphisms. This technique enables faster and more reproducible characterization of disease-relevant fibril structures, improving the diagnosis of Parkinsonian diseases.',
-    image: '/projects/biochem/proteolytic-assay.png',
-    paperUrl: '',
-    tags: ['Mass Spectrometry', 'Fibril Polymorphism', 'Proteolysis', '\u03b1-Synuclein', 'Biochemical Assay'],
-    journal: '',
-    year: '',
-    status: 'In Preparation',
   },
 ];

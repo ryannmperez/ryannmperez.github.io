@@ -10,16 +10,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 'task',
-    title: 'TAsk',
-    description:
-      'A RAG-based research assistant that helps reason through advanced concepts by searching through class documents and references, then generating informed responses with source citations. The capabilities and educational benefits of this system were studied in a real biological chemistry classroom.',
-    image: '/projects/task.mp4',
-    githubUrl: 'https://github.com/ryannmperez/TAsk',
-    paperUrl: 'https://www.sciencedirect.com/science/article/pii/S2666920X2600007X',
-    tags: ['RAG', 'LLM', 'Google Cloud', 'Python', 'Education Technology', 'Biochemistry', 'Open Source', 'Generative AI'],
-  },
-  {
     id: 'amyloid-prediction',
     title: 'AggBERT: Amyloid Prediction',
     description:
@@ -28,25 +18,6 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/ryannmperez/AmyloidPrediction',
     paperUrl: 'https://doi.org/10.1021/acs.jcim.3c00817',
     tags: ['Transformers', 'UMAP', 'Semi-Supervised Learning', 'Autoencoders', 'Embeddings', 'Exploratory Data Analysis', 'Class Imbalance'],
-  },
-  {
-    id: 'isotope-incorporation',
-    title: 'Isotope Distribution Estimation',
-    description:
-      'Tools for calculating and visualizing fine isotope patterns in MALDI-TOF data. Includes methods for estimating heavy isotope incorporation fractions in tryptic peptides containing heavy C, N, or H.',
-    image: '/projects/isotope-distribution.gif',
-    githubUrl: 'https://github.com/ryannmperez/Estimate_Isotope_Incorporation',
-    tags: ['Mass Spectrometry (MS)', 'Heavy Isotopes', 'Scientific Computing', 'Python'],
-  },
-  {
-    id: 'alpha-synuclein-binder',
-    title: 'Alpha-Synuclein Binder',
-    description:
-      'A machine learning framework to predict new high-affinity ligands that bind to α-synuclein fibrils, a key pathological feature of Parkinson\'s disease and related synucleinopathies. Trained on fewer than 300 experimentally measured binding affinities, the model identified five new sub-10 nM binders from a 140 million-compound virtual library.',
-    image: '/projects/alpha-synuclein.gif',
-    githubUrl: 'https://github.com/ryannmperez/alpha-SynucleinBinder',
-    paperUrl: 'https://doi.org/10.1039/D5CC06228D',
-    tags: ['Virtual Screening', 'Drug Discovery', 'Cheminformatics', 'Machine Learning', 'Parkinson\'s Disease'],
   },
   {
     id: 'hint-token-learning',
@@ -59,6 +30,26 @@ export const projects: Project[] = [
     tags: ['Machine Learning', 'Protein Language Models', 'Deep Learning', 'PyTorch', 'Domain Adaptation'],
   },
   {
+    id: 'task',
+    title: 'TAsk',
+    description:
+      'A RAG-based research assistant that helps reason through advanced concepts by searching through class documents and references, then generating informed responses with source citations. The capabilities and educational benefits of this system were studied in a real biological chemistry classroom.',
+    image: '/projects/task.mp4',
+    githubUrl: 'https://github.com/ryannmperez/TAsk',
+    paperUrl: 'https://www.sciencedirect.com/science/article/pii/S2666920X2600007X',
+    tags: ['RAG', 'LLM', 'Google Cloud', 'Python', 'Education Technology', 'Biochemistry', 'Open Source', 'Generative AI'],
+  },
+  {
+    id: 'alpha-synuclein-binder',
+    title: 'Alpha-Synuclein Binder',
+    description:
+      'A machine learning framework to predict new high-affinity ligands that bind to α-synuclein fibrils, a key pathological feature of Parkinson\'s disease and related synucleinopathies. Trained on fewer than 300 experimentally measured binding affinities, the model identified five new sub-10 nM binders from a 140 million-compound virtual library.',
+    image: '/projects/alpha-synuclein.gif',
+    githubUrl: 'https://github.com/ryannmperez/alpha-SynucleinBinder',
+    paperUrl: 'https://doi.org/10.1039/D5CC06228D',
+    tags: ['Virtual Screening', 'Drug Discovery', 'Cheminformatics', 'Machine Learning', 'Parkinson\'s Disease'],
+  },
+  {
     id: 'protein-stability',
     title: 'Protein Stability Prediction',
     description:
@@ -67,5 +58,14 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/ryannmperez/ProteinStability',
     paperUrl: 'https://doi.org/10.3390/ijms26157125',
     tags: ['Protein Engineering', 'Machine Learning', 'Bioinformatics'],
+  },
+  {
+    id: 'isotope-incorporation',
+    title: 'Isotope Distribution Estimation',
+    description:
+      'Tools for calculating and visualizing fine isotope patterns in MALDI-TOF data. Includes methods for estimating heavy isotope incorporation fractions in tryptic peptides containing heavy C, N, or H.',
+    image: '/projects/isotope-distribution.gif',
+    githubUrl: 'https://github.com/ryannmperez/Estimate_Isotope_Incorporation',
+    tags: ['Mass Spectrometry (MS)', 'Heavy Isotopes', 'Scientific Computing', 'Python'],
   },
 ];
