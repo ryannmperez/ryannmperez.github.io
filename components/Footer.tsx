@@ -1,17 +1,23 @@
 export default function Footer() {
+  const iconClass = "text-[#d4cdc0]/40 hover:text-teal-400 transition-colors duration-300";
+
   return (
-    <footer className="border-t border-dark-border py-8 mt-16 bg-dark-bg/50 backdrop-blur-sm">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-dark-muted text-sm">
+    <footer className="bg-transparent py-12 mt-20">
+      <div className="glow-line" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+        <div className="flex flex-col items-center gap-6">
+          <p className="font-mono text-xs text-[#d4cdc0]/40 tracking-wider uppercase">
             {new Date().getFullYear()} Ryann Perez
+          </p>
+          <p className="text-xs text-[#d4cdc0]/30 font-mono">
+            Computational Biology x Machine Learning
           </p>
           <div className="flex items-center gap-6">
             <a
               href="https://github.com/ryannmperez"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-dark-muted hover:text-dark-accent transition-colors"
+              className={iconClass}
               title="GitHub"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -22,7 +28,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/ryann-perez/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-dark-muted hover:text-dark-accent transition-colors"
+              className={iconClass}
               title="LinkedIn"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -31,7 +37,7 @@ export default function Footer() {
             </a>
             <a
               href="mailto:ryann.m.perez@gmail.com"
-              className="text-dark-muted hover:text-dark-accent transition-colors"
+              className={iconClass}
               title="Email"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -42,7 +48,7 @@ export default function Footer() {
               href="https://scholar.google.com/citations?user=nOgqdusAAAAJ&hl=en"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-dark-muted hover:text-dark-accent transition-colors"
+              className={iconClass}
               title="Google Scholar"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

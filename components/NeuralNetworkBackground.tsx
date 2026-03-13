@@ -27,6 +27,9 @@ interface Connection {
   formed: boolean;
 }
 
+const TEAL = { r: 45, g: 212, b: 191 };
+const GOLD = { r: 212, g: 165, b: 116 };
+
 export default function NeuralNetworkBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -39,21 +42,16 @@ export default function NeuralNetworkBackground() {
   const spawnedCountRef = useRef<number>(0);
   const initializedRef = useRef<boolean>(false);
 
-  // Check if a point is in the center exclusion zone (where text is)
   const isInExclusionZone = useCallback((x: number, y: number, width: number, height: number): boolean => {
     const centerX = width / 2;
     const centerY = height / 2;
-
     const exclusionWidth = Math.min(width * 0.4, 550);
     const exclusionHeight = Math.min(height * 0.55, 320);
-
     const normalizedX = (x - centerX) / exclusionWidth;
     const normalizedY = (y - centerY) / exclusionHeight;
-
     return (normalizedX * normalizedX + normalizedY * normalizedY) < 1;
   }, []);
 
-  // Pre-generate all node positions (but they won't be visible yet)
   const generateNodes = useCallback((width: number, height: number): Node[] => {
     const nodes: Node[] = [];
     const nodeCount = Math.floor((width * height) / 25000);
@@ -79,9 +77,9 @@ export default function NeuralNetworkBackground() {
             y,
             baseX: x,
             baseY: y,
-            radius: 4 + Math.random() * 5, // Twice as big
+            radius: 4 + Math.random() * 5,
             opacity: 0,
-            targetOpacity: 0.5 + Math.random() * 0.4,
+            targetOpacity: (0.5 + Math.random() * 0.4) * 0.7,
             phase: Math.random() * Math.PI * 2,
             speed: 0.3 + Math.random() * 0.4,
             brightness: 0,
@@ -94,7 +92,6 @@ export default function NeuralNetworkBackground() {
       attempts++;
     }
 
-    // Shuffle nodes so they spawn in random order
     for (let i = nodes.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [nodes[i], nodes[j]] = [nodes[j], nodes[i]];
@@ -105,7 +102,6 @@ export default function NeuralNetworkBackground() {
     return nodes;
   }, [isInExclusionZone]);
 
-  // Generate potential connections (they form as nodes spawn)
   const generateConnections = useCallback((nodes: Node[], width: number, height: number): Connection[] => {
     const connections: Connection[] = [];
     const maxDistance = Math.min(width, height) * 0.22;
@@ -148,7 +144,7 @@ export default function NeuralNetworkBackground() {
               from: i,
               to: n.index,
               opacity: 0,
-              targetOpacity: 0.2 + Math.random() * 0.25,
+              targetOpacity: (0.2 + Math.random() * 0.25) * 0.7,
               formed: false,
             });
           }
@@ -169,7 +165,6 @@ export default function NeuralNetworkBackground() {
 
     const resizeCanvas = () => {
       const rect = container.getBoundingClientRect();
-
       const dpr = window.devicePixelRatio || 1;
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
@@ -202,7 +197,7 @@ export default function NeuralNetworkBackground() {
       const nodes = nodesRef.current;
       const connections = connectionsRef.current;
 
-      // Spawn nodes gradually (2-4 at a time every 150ms)
+      // Spawn nodes gradually
       const spawnInterval = 150;
       const nodesPerSpawn = 2 + Math.floor(Math.random() * 3);
 
@@ -231,34 +226,28 @@ export default function NeuralNetworkBackground() {
       for (const node of nodes) {
         if (!node.isSpawned) continue;
 
-        // Fade in after spawning
         const spawnAge = time - node.spawnTime;
         const fadeInDuration = 800;
         const fadeInProgress = Math.min(spawnAge / fadeInDuration, 1);
 
-        // Floating effect
         const floatX = Math.sin(time * 0.0008 * node.speed + node.phase) * 12;
         const floatY = Math.cos(time * 0.0006 * node.speed + node.phase * 1.3) * 10;
 
         node.x = node.baseX + floatX;
         node.y = node.baseY + floatY;
 
-        // Twinkling effect
-        const twinkle = 0.15 * Math.sin(time * 0.003 + node.phase * 2);
+        const twinkle = 0.1 * Math.sin(time * 0.003 + node.phase * 2);
 
-        // Wave brightness
         const nodeNormalizedX = node.baseX / width;
         const waveDistance = Math.abs(nodeNormalizedX - wavePositionRef.current);
 
         if (waveDistance < 0.12) {
-          node.targetBrightness = 1 - (waveDistance / 0.12);
+          node.targetBrightness = (1 - (waveDistance / 0.12)) * 0.5;
         } else {
           node.targetBrightness = 0;
         }
 
         node.brightness += (node.targetBrightness - node.brightness) * 0.08;
-
-        // Update opacity with fade-in and twinkle
         node.opacity = (node.targetOpacity + twinkle) * fadeInProgress;
       }
 
@@ -270,28 +259,26 @@ export default function NeuralNetworkBackground() {
         if (!fromNode || !toNode) continue;
         if (!fromNode.isSpawned || !toNode.isSpawned) continue;
 
-        // Mark as formed once both nodes exist
         if (!conn.formed) {
           conn.formed = true;
         }
 
-        // Fade in connection
         conn.opacity += (conn.targetOpacity - conn.opacity) * 0.02;
 
         const connBrightness = Math.max(fromNode.brightness, toNode.brightness);
-        const baseAlpha = conn.opacity * Math.min(fromNode.opacity, toNode.opacity) / fromNode.targetOpacity;
+        const baseAlpha = conn.opacity * Math.min(fromNode.opacity, toNode.opacity) / fromNode.targetOpacity * 0.12;
 
         ctx.beginPath();
         ctx.moveTo(fromNode.x, fromNode.y);
         ctx.lineTo(toNode.x, toNode.y);
 
         if (connBrightness > 0.1) {
-          const waveAlpha = connBrightness * 0.6;
-          ctx.strokeStyle = `rgba(168, 85, 247, ${Math.min(baseAlpha + waveAlpha, 1)})`;
-          ctx.lineWidth = 1.5 + connBrightness;
+          const waveAlpha = connBrightness * 0.2;
+          ctx.strokeStyle = `rgba(${GOLD.r}, ${GOLD.g}, ${GOLD.b}, ${Math.min(baseAlpha + waveAlpha, 0.4)})`;
+          ctx.lineWidth = 1 + connBrightness * 0.5;
         } else {
-          ctx.strokeStyle = `rgba(139, 92, 246, ${baseAlpha})`;
-          ctx.lineWidth = 1;
+          ctx.strokeStyle = `rgba(${TEAL.r}, ${TEAL.g}, ${TEAL.b}, ${baseAlpha})`;
+          ctx.lineWidth = 0.8;
         }
 
         ctx.stroke();
@@ -302,45 +289,40 @@ export default function NeuralNetworkBackground() {
         if (!node.isSpawned || node.opacity < 0.01) continue;
 
         if (node.brightness > 0.05) {
-          // Outer glow for wave effect
           const glowGradient = ctx.createRadialGradient(
             node.x, node.y, 0,
-            node.x, node.y, node.radius * 5
+            node.x, node.y, node.radius * 3
           );
-          glowGradient.addColorStop(0, `rgba(255, 255, 255, ${0.5 * node.brightness * node.opacity})`);
-          glowGradient.addColorStop(0.3, `rgba(192, 132, 252, ${0.35 * node.brightness * node.opacity})`);
-          glowGradient.addColorStop(0.6, `rgba(139, 92, 246, ${0.15 * node.brightness * node.opacity})`);
-          glowGradient.addColorStop(1, 'rgba(139, 92, 246, 0)');
+          glowGradient.addColorStop(0, `rgba(${GOLD.r}, ${GOLD.g}, ${GOLD.b}, ${0.25 * node.brightness * node.opacity})`);
+          glowGradient.addColorStop(0.5, `rgba(${TEAL.r}, ${TEAL.g}, ${TEAL.b}, ${0.1 * node.brightness * node.opacity})`);
+          glowGradient.addColorStop(1, `rgba(${TEAL.r}, ${TEAL.g}, ${TEAL.b}, 0)`);
 
           ctx.beginPath();
-          ctx.arc(node.x, node.y, node.radius * 5, 0, Math.PI * 2);
+          ctx.arc(node.x, node.y, node.radius * 3, 0, Math.PI * 2);
           ctx.fillStyle = glowGradient;
           ctx.fill();
 
-          // Bright center
           ctx.beginPath();
-          ctx.arc(node.x, node.y, node.radius * (1 + node.brightness * 0.5), 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255, 255, 255, ${(0.7 + 0.3 * node.brightness) * node.opacity})`;
+          ctx.arc(node.x, node.y, node.radius * (1 + node.brightness * 0.3), 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${GOLD.r}, ${GOLD.g}, ${GOLD.b}, ${(0.5 + 0.2 * node.brightness) * node.opacity})`;
           ctx.fill();
         } else {
-          // Normal node with subtle glow
           const gradient = ctx.createRadialGradient(
             node.x, node.y, 0,
-            node.x, node.y, node.radius * 2.5
+            node.x, node.y, node.radius * 2
           );
-          gradient.addColorStop(0, `rgba(192, 132, 252, ${node.opacity})`);
-          gradient.addColorStop(0.5, `rgba(139, 92, 246, ${node.opacity * 0.4})`);
-          gradient.addColorStop(1, 'rgba(139, 92, 246, 0)');
+          gradient.addColorStop(0, `rgba(${TEAL.r}, ${TEAL.g}, ${TEAL.b}, ${node.opacity * 0.7})`);
+          gradient.addColorStop(0.5, `rgba(${TEAL.r}, ${TEAL.g}, ${TEAL.b}, ${node.opacity * 0.2})`);
+          gradient.addColorStop(1, `rgba(${TEAL.r}, ${TEAL.g}, ${TEAL.b}, 0)`);
 
           ctx.beginPath();
-          ctx.arc(node.x, node.y, node.radius * 2.5, 0, Math.PI * 2);
+          ctx.arc(node.x, node.y, node.radius * 2, 0, Math.PI * 2);
           ctx.fillStyle = gradient;
           ctx.fill();
 
-          // Node center
           ctx.beginPath();
-          ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(192, 132, 252, ${node.opacity + 0.2})`;
+          ctx.arc(node.x, node.y, node.radius * 0.8, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${TEAL.r}, ${TEAL.g}, ${TEAL.b}, ${node.opacity * 0.6})`;
           ctx.fill();
         }
       }

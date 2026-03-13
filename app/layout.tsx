@@ -53,8 +53,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased animated-gradient min-h-screen`}
       >
-        {/* Gradient accent bar */}
-        <div className="h-1 w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500" />
+        <div className="accent-bar" />
         <Header />
         <main className="pt-16">
           {children}
