@@ -63,7 +63,7 @@ export const projects: Project[] = [
     title: 'Protein Stability Prediction',
     description:
       'Large language models for predicting protein stability changes upon mutation. Useful for protein engineering and understanding disease-causing variants.',
-    image: '/projects/protein-stability.png',
+    image: '/projects/protein-stability.gif',
     githubUrl: 'https://github.com/ryannmperez/ProteinStability',
     paperUrl: 'https://doi.org/10.3390/ijms26157125',
     tags: ['Protein Engineering', 'Machine Learning', 'Bioinformatics'],

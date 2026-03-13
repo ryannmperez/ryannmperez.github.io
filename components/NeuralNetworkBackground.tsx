@@ -28,7 +28,7 @@ interface Connection {
 }
 
 const TEAL = { r: 45, g: 212, b: 191 };
-const GOLD = { r: 212, g: 165, b: 116 };
+const GOLD = { r: 232, g: 185, b: 106 };
 
 export default function NeuralNetworkBackground() {
   const containerRef = useRef<HTMLDivElement>(null);

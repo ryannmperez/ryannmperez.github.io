@@ -17,16 +17,19 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 SCAFFOLDS_DIR = os.path.join(SCRIPT_DIR, "frames", "scaffolds")
 
 # Portfolio website palette
-BG_COLOR = "#0d1117"
-TEXT_PRIMARY = "#c9d1d9"
-ACCENT_BLUE = "#58a6ff"
-ACCENT_PURPLE = "#a371f7"
-ACCENT_PINK = "#f778ba"
+BG_COLOR = "#0a0f1a"
+CARD_BG = "#111827"
+BORDER_COLOR = "#30363d"
+TEXT_PRIMARY = "#f5f0e8"
+TEXT_MUTED = "#8b949e"
+TEAL = "#2dd4bf"
+GOLD = "#d4a574"
+ROSE = "#c9787c"
 
 MOLECULES = [
-    {"name": "BV-21", "color": ACCENT_BLUE},
-    {"name": "TZ61-84", "color": ACCENT_PURPLE},
-    {"name": "BF-2846", "color": ACCENT_PINK},
+    {"name": "BV-21", "color": TEAL},
+    {"name": "TZ61-84", "color": GOLD},
+    {"name": "BF-2846", "color": ROSE},
 ]
 
 POSITIONS = [LEFT * 3.8, ORIGIN, RIGHT * 3.8]
@@ -40,7 +43,7 @@ class ScaffoldScene(Scene):
         title = Text(
             "Alpha-Synuclein PET Scaffolds",
             font_size=38,
-            color=ACCENT_BLUE,
+            color=TEAL,
             weight=BOLD,
         )
         subtitle = Text(

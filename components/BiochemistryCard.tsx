@@ -102,7 +102,7 @@ export default function BiochemistryCard({
       </div>
 
       {/* Image Panel */}
-      <div className="gradient-card corner-brackets overflow-hidden aspect-video md:aspect-[4/3] relative min-h-[200px] md:min-h-[400px] w-full">
+      <div className="gradient-card overflow-hidden aspect-video md:aspect-[4/3] relative min-h-[200px] md:min-h-[400px] w-full">
         <Image
           src={image}
           alt={`${title} preview`}

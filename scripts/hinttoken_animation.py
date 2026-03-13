@@ -19,14 +19,14 @@ HIGHLIGHTED_DIR = os.path.join(SCRIPT_DIR, "frames", "highlighted")
 PLAIN_DIR = os.path.join(SCRIPT_DIR, "frames", "plain")
 
 # ── Portfolio website color palette ──
-BG_COLOR = "#0d1117"
-CARD_BG = "#161b22"
+BG_COLOR = "#0a0f1a"
+CARD_BG = "#111827"
 BORDER_COLOR = "#30363d"
-TEXT_PRIMARY = "#c9d1d9"
+TEXT_PRIMARY = "#f5f0e8"
 TEXT_MUTED = "#8b949e"
-ACCENT_BLUE = "#58a6ff"
-ACCENT_PURPLE = "#a371f7"
-ACCENT_PINK = "#f778ba"
+TEAL = "#2dd4bf"
+GOLD = "#d4a574"
+ROSE = "#c9787c"
 ACCURATE_GREEN = "#3fb950"
 INACCURATE_RED = "#f85149"
 HINT_YELLOW = "#FFD700"
@@ -59,7 +59,7 @@ class HintTokenScene(Scene):
     # Part A: Protein Introduction
     # ─────────────────────────────────────────────────────────────
     def part_a_protein_intro(self, highlighted_frames, plain_frames):
-        title = Text("HintToken Learning", font_size=44, color=ACCENT_BLUE, weight=BOLD)
+        title = Text("HintToken Learning", font_size=44, color=TEAL, weight=BOLD)
         subtitle = Text(
             "Improving ΔΔG Prediction with Hint Token Augmentation",
             font_size=24, color=TEXT_PRIMARY,
@@ -74,7 +74,7 @@ class HintTokenScene(Scene):
         if highlighted_frames:
             left_protein = self._create_protein_image(highlighted_frames[0], height=3.0)
         else:
-            left_protein = Circle(radius=1.5, color=ACCENT_PURPLE, fill_opacity=0.15)
+            left_protein = Circle(radius=1.5, color=GOLD, fill_opacity=0.15)
         left_protein.move_to(left_pos + DOWN * 0.3)
 
         if plain_frames:
@@ -83,12 +83,12 @@ class HintTokenScene(Scene):
             right_protein = Circle(radius=1.5, color=TEXT_MUTED, fill_opacity=0.15)
         right_protein.move_to(right_pos + DOWN * 0.3)
 
-        left_label = Text("With Hint Tokens", font_size=24, color=ACCENT_PURPLE, weight=BOLD)
+        left_label = Text("With Hint Tokens", font_size=24, color=GOLD, weight=BOLD)
         left_label.next_to(left_protein, DOWN, buff=0.3)
         right_label = Text("Without Hint Tokens", font_size=24, color=TEXT_MUTED, weight=BOLD)
         right_label.next_to(right_protein, DOWN, buff=0.3)
 
-        glow = Circle(radius=1.6, color=ACCENT_PURPLE, fill_opacity=0.08, stroke_width=2)
+        glow = Circle(radius=1.6, color=GOLD, fill_opacity=0.08, stroke_width=2)
         glow.move_to(left_protein.get_center())
 
         self.play(
@@ -172,19 +172,19 @@ class HintTokenScene(Scene):
         self.wait(0.8)
 
         # --- Animate V→A mutation ---
-        mutation_note = Text("V → A mutation at position 3", font_size=24, color=ACCENT_PINK)
+        mutation_note = Text("V → A mutation at position 3", font_size=24, color=ROSE)
         mutation_note.next_to(orig_letters, DOWN, buff=0.5)
 
         arrow_to_v = Arrow(
             mutation_note.get_top(), orig_letters[mutation_idx].get_bottom(),
-            buff=0.1, color=ACCENT_PINK, stroke_width=6,
+            buff=0.1, color=ROSE, stroke_width=6,
             max_tip_length_to_length_ratio=0.3,
             tip_length=0.25,
         )
         self.play(FadeIn(mutation_note), GrowArrow(arrow_to_v), run_time=1.0)
         self.wait(0.6)
 
-        new_a = Text("A", font_size=44, color=ACCENT_PURPLE, font="Monospace", weight=BOLD)
+        new_a = Text("A", font_size=44, color=GOLD, font="Monospace", weight=BOLD)
         new_a.move_to(orig_letters[mutation_idx].get_center())
         self.play(
             FadeOut(orig_letters[mutation_idx], shift=UP * 0.3),
@@ -211,7 +211,7 @@ class HintTokenScene(Scene):
         right_letters.arrange(RIGHT, buff=0.4)
         right_letters.move_to(RIGHT * 3.2 + UP * 0.5)
 
-        left_seq_label = Text("Hint Token Path", font_size=24, color=ACCENT_PURPLE)
+        left_seq_label = Text("Hint Token Path", font_size=24, color=GOLD)
         left_seq_label.next_to(orig_letters, UP, buff=0.3)
         right_seq_label = Text("Standard Path", font_size=24, color=TEXT_MUTED)
         right_seq_label.next_to(right_letters, UP, buff=0.3)
@@ -354,7 +354,7 @@ class HintTokenScene(Scene):
         # ── Build neural network diagram ──
         model_box = RoundedRectangle(
             width=5.0, height=2.4, corner_radius=0.2,
-            color=ACCENT_BLUE, fill_opacity=0.08, stroke_width=2,
+            color=TEAL, fill_opacity=0.08, stroke_width=2,
         )
         model_box.move_to(DOWN * 1.5)
 
@@ -377,7 +377,7 @@ class HintTokenScene(Scene):
             for ni in range(n_nodes):
                 node = Circle(
                     radius=node_radius,
-                    color=ACCENT_BLUE if li == 1 else ACCENT_PURPLE,
+                    color=TEAL if li == 1 else GOLD,
                     fill_opacity=0.5, stroke_width=1.5,
                 )
                 node.move_to(model_box.get_center() +
@@ -414,12 +414,12 @@ class HintTokenScene(Scene):
         # ── Neural network processing animation ──
         # Pulse connections bright, then pulse nodes layer by layer
         self.play(
-            *[line.animate.set_stroke(opacity=0.8, color=ACCENT_BLUE) for line in nn_connections],
+            *[line.animate.set_stroke(opacity=0.8, color=TEAL) for line in nn_connections],
             rate_func=there_and_back, run_time=0.5,
         )
         for layer in layers_nodes:
             self.play(
-                *[node.animate.set_fill(color=ACCENT_BLUE, opacity=0.95).scale(1.3) for node in layer],
+                *[node.animate.set_fill(color=TEAL, opacity=0.95).scale(1.3) for node in layer],
                 rate_func=there_and_back, run_time=0.3,
             )
         # Final flash — all nodes
@@ -451,7 +451,7 @@ class HintTokenScene(Scene):
         out_left = Arrow(
             box.get_bottom() + LEFT * 1.5,
             box.get_bottom() + LEFT * 1.5 + DOWN * 1.0,
-            buff=0.05, color=ACCENT_PURPLE, stroke_width=6,
+            buff=0.05, color=GOLD, stroke_width=6,
             max_tip_length_to_length_ratio=0.25,
             tip_length=0.25,
         )
@@ -468,7 +468,7 @@ class HintTokenScene(Scene):
         result_y = out_left.get_bottom()[1] - 0.3
 
         # Left result — hint tokens (accurate)
-        left_title = Text("With Hint Tokens", font_size=26, color=ACCENT_PURPLE, weight=BOLD)
+        left_title = Text("With Hint Tokens", font_size=26, color=GOLD, weight=BOLD)
         left_pred = Text("Predicted: -1.23 kcal/mol", font_size=24, color=TEXT_PRIMARY)
         left_actual = Text("Actual:       -1.31 kcal/mol", font_size=24, color=TEXT_MUTED)
         left_verdict = Text("✓ Accurate", font_size=26, color=ACCURATE_GREEN, weight=BOLD)
@@ -499,7 +499,7 @@ class HintTokenScene(Scene):
         # Final message
         final_text = Text(
             "Hint Tokens improve ΔΔG prediction accuracy",
-            font_size=26, color=ACCENT_BLUE, weight=BOLD,
+            font_size=26, color=TEAL, weight=BOLD,
         )
         final_text.to_edge(DOWN, buff=0.25)
 
