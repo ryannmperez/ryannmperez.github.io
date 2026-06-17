@@ -13,10 +13,10 @@ export const projects: Project[] = [
     id: 'openfibrilfold',
     title: 'OpenFibrilFold: Amyloid Fibril Structure Prediction',
     description:
-      'An OpenFold3 fine-tune for all-atom amyloid fibril structure prediction, including the small-molecule ligands bound within the fibril core. By conditioning on cross-β stacking geometry, the model builds multi-protofilament fibrils and docks ligands into their stacked binding pockets. Shown here on the α-synuclein fibril 9UG1: the prediction recovers the protein backbone to 0.55 Å and all ten stacked ligands to a 1.74 Å median against the deposited structure.',
+      'A fine tuned OpenFold3 for all atom amyloid fibril structure prediction, including the small-molecule ligands bound within the fibril core. By conditioning on cross-β stacking geometry, the model builds multi-protofilament fibrils and docks ligands into their stacked binding pockets. Shown here on the α-synuclein fibril 9UG1: the prediction recovers the protein backbone to 0.55 Å and all ten stacked ligands to a 1.74 Å median against the deposited structure.',
     image: '/projects/openfibrilfold.mp4',
     githubUrl: 'https://github.com/ryannmperez/OpenFibrilFold',
-    tags: ['Structural Biology', 'OpenFold3', 'Diffusion Models', 'Amyloid Fibrils', 'Ligand Docking', 'Parkinson\'s Disease', 'PyTorch'],
+    tags: ['Structural Biology', 'OpenFold3', 'Diffusion Models', 'Amyloid Fibrils', 'Cofolding', 'Parkinson\'s Disease', 'PyTorch'],
   },
   {
     id: 'amyloid-prediction',
