@@ -76,10 +76,10 @@ export default function Resume() {
           <div className="space-y-4 relative z-10">
             <div className="flex justify-between items-start">
               <div>
-                <p className="text-dark-text font-medium">PhD Candidate, Computational Biochemistry</p>
+                <p className="text-dark-text font-medium">PhD, Computational Biochemistry</p>
                 <p className="text-dark-muted text-sm">University of Pennsylvania | GPA: 3.99</p>
               </div>
-              <span className="text-dark-muted text-sm font-mono whitespace-nowrap ml-4">Expected March 2026</span>
+              <span className="text-dark-muted text-sm font-mono whitespace-nowrap ml-4">April 2026</span>
             </div>
             <div className="flex justify-between items-start">
               <div>
@@ -109,7 +109,7 @@ export default function Resume() {
                   <p className="text-dark-text font-medium">Graduate Researcher</p>
                   <p className="text-dark-muted text-sm">University of Pennsylvania, Lab of Dr. E. James Petersson</p>
                 </div>
-                <span className="text-dark-muted text-sm font-mono whitespace-nowrap ml-4">Sept 2020 - Present</span>
+                <span className="text-dark-muted text-sm font-mono whitespace-nowrap ml-4">Sept 2020 - April 2026</span>
               </div>
               <ul className="text-dark-muted text-sm list-disc list-inside space-y-2 ml-2">
                 <li>Crafted custom LLMs to achieve state-of-the-art performance on biologic aggregation and protein stability; important findings that streamline the property prediction of proteins. Scaled LLM for inference on 64 million datapoints</li>
@@ -212,8 +212,8 @@ export default function Resume() {
           </div>
           <ul className="text-dark-muted text-sm space-y-4 relative z-10">
             <li>
-              <span className="text-dark-text font-medium">Perez, R. M.</span>; Shimogawa M.; et al. Large Language Models for Education: ChemTAsk -- An Open-Source Paradigm for Automated Q&A in the Graduate Classroom. <em>Comput. Educ.: Artif. Intel.</em> <span className="text-teal-400">Accepted</span>{' '}
-              <a href="https://arxiv.org/abs/2502.00016" target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:text-teal-300 transition-colors">DOI</a>
+              <span className="text-dark-text font-medium">Perez, R. M.</span>; Shimogawa, M.; et al. Large Language Models for Education: TAsk — An Open-Source Paradigm for Automated Q&amp;A in the Graduate Classroom. <em>Comput. Educ.: Artif. Intel.</em> <span className="font-mono">2026</span>.{' '}
+              <a href="https://doi.org/10.1016/j.caeai.2026.100546" target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:text-teal-300 transition-colors">DOI</a>
             </li>
             <li>
               Li, X.; <span className="text-dark-text font-medium">Perez, R. M.</span>; Mach, R. H.; Giannakoulias, S.; Petersson, E. J. Machine Learning Prediction of Multiple Distinct High-Affinity Chemotypes for &alpha;-Synuclein Fibrils. <em>Chem. Commun.</em> <span className="font-mono">2026</span>.{' '}
